@@ -24,6 +24,7 @@ plt.show()
 # Example 2: Survival by gender
 plt.figure(figsize=(8, 5))
 sns.countplot(data=df, x='Survived', hue='Sex', palette='muted')
+# Column to Group By: Here, hue='Sex' means the data will be grouped by the unique values in the column Sex (e.g., "male" and "female"
 plt.title('Survival by Gender')
 plt.xlabel('Survived (0 = No, 1 = Yes)')
 plt.ylabel('Count')
@@ -58,3 +59,14 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(df.select_dtypes(include=['float64', 'int64']).corr(), annot=True, cmap='coolwarm', fmt=".2f")
 plt.title('Correlation Heatmap')
 plt.show()
+
+
+# Purpose: Shows the correlations between numerical variables (like Age, Fare, Pclass).
+# Insight:
+# High positive correlation (+1) implies that as one variable increases, the other does too.
+# Negative correlation (-1) implies that as one variable increases, the other decreases.
+# For example:
+# A negative correlation between Pclass and Fare might indicate that higher classes (1st) had higher fares.
+# Customizations:
+# annot=True adds numerical values to the heatmap.
+# cmap='coolwarm' provides a visually distinct color gradient.
